@@ -7,6 +7,18 @@ export default function TodoContainer() {
     todoTitle: "리액트 배우기",
     isEditing: false,
   });
+  const [todoList, setTodoList] = useState([
+    {
+      id: "uniqeKey",
+      todoTitle: "리액트 배우기",
+      isEditing: false,
+    },
+    {
+      id: "uniqeKey",
+      todoTitle: "자바스크립트 배우기",
+      isEditing: false,
+    },
+  ]);
   //1.isEditing=true이면 input창을 보여준다.
   //2. false면 그대로 있다
 
