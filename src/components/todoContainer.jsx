@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "./todoContainer.css";
 import TodoList from "./todoList";
+import { v4 as uuidv4 } from "uuid";
 
 export default function TodoContainer() {
+  const [addText, setAddText] = useState("");
+
   const [todo, setTodo] = useState({
     todoTitle: "리액트 배우기",
     isEditing: false,
@@ -69,21 +72,33 @@ export default function TodoContainer() {
   //1.수정버튼을 누르면 onChane 이벤트에 이벤트 객체를 통해서 변수 값이 전달되고
   //2.객체에서 todoTitle만 변경해줌
   //변수의 값은 받아온 이벤트 값으로 바꿔준다.=(e.target.value)
+  const handleForm = (e) => {
+    setAddText(e.target.value);
+  };
+  const handleAdd = () => {
+    const newArr = {
+      todoTitle: addText,
+      id: uuidv4(),
+      isEditing: false
+    };
+    setTodoList([...todoList,newArr]);
 
+  };
   return (
     <>
       <div className="inputBox">
         <input
           className="inputText"
           type="text"
+          value={addText}
           placeholder="할 일을 입력하세요"
-        ></input>
-        <button>추가</button>
+          onChange={handleForm}
+        />
+        <button onClick={handleAdd}>추가</button>
       </div>
 
       <ul>
         {todoList.map((t) => {
-          console.log("t값", t);
           return (
             <TodoList
               key={t.id}
