@@ -14,9 +14,9 @@ export default function TodoContainer() {
       isEditing: false,
     },
     {
-      id: "uniqeKey",
+      id: "uniqeKey2",
       todoTitle: "자바스크립트 배우기",
-      isEditing: false,
+      isEditing: true,
     },
   ]);
   //1.isEditing=true이면 input창을 보여준다.
@@ -41,12 +41,19 @@ export default function TodoContainer() {
 
   return (
     <ul>
-      <TodoList
-        todoTitle={todo.todoTitle}
-        edit={edit}
-        isEditing={todo.isEditing}
-        handleText={handleText}
-      />
+      {todoList.map((t) => {
+        console.log("t값", t);
+        return (
+          <TodoList
+            key={t.id}
+            todoTitle={t.todoTitle}
+            edit={edit}
+            isEditing={t.isEditing}
+            handleText={handleText}
+          />
+        );
+      })}
+
       {/* <li className="box">
           <p className="textBox">타입스크립트 배우기</p>
           <button>수정</button>
