@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import TodoList from "./components/todoList" 
+import TodoContainer from "./components/todoContainer" 
 // 1.입력창에 내용을 입력한다.
 //2. 추가버튼을 누른다.클릭이벤트 발생
 //3.리스트에 내용이 반영된다
@@ -24,7 +24,7 @@ function App() {
         <button>추가</button>
       </div>
 
-      <TodoList/>
+      <TodoContainer/>
     </div>
   );
 }
