@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TodoList({ isEditing, todoTitle, edit, handleText }) {
+export default function TodoList({ listDelete, isEditing, todoTitle, edit, handleText }) {
   return (
     <li className="box">
       {isEditing ? (
@@ -21,7 +21,7 @@ export default function TodoList({ isEditing, todoTitle, edit, handleText }) {
           <button onClick={edit} className="button">
             수정
           </button>
-          <button>삭제</button>
+          <button onClick={listDelete}>삭제</button>
         </>
       )}
     </li>

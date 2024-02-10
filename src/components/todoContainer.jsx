@@ -12,6 +12,7 @@ export default function TodoContainer() {
       id: "uniqeKey",
       todoTitle: "리액트 배우기",
       isEditing: false,
+
     },
     // 중괄호 하나가 t값 하나다
     {
@@ -55,6 +56,13 @@ export default function TodoContainer() {
     setTodoList(newText);
   };
 
+  const handleDelete = (id)=>{
+    // 1.
+    const newDelete = todoList.filter((t)=>{
+      return id !== t.id;
+    });
+    setTodoList(newDelete);
+  }
   const handleText = (e) => {
     setTodo({ ...todo, todoTitle: e.target.value });
   };
@@ -72,6 +80,7 @@ export default function TodoContainer() {
             key={t.id}
             todoTitle={t.todoTitle}
             edit={() => editInList(t.id)}
+            listDelete={()=>handleDelete(t.id)}
             isEditing={t.isEditing}
             handleText={(e) => handleTextInList(e, t.id)}
           />
