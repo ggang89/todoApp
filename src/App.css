@@ -1,0 +1,11 @@
+.headerName{
+  color: green;
+  text-align: center ;
+  border-bottom: 1px solid green;
+  padding: 20px 0;
+}
+.wrap{
+  width: 600px;
+  height: 100vh;
+  margin: 0 auto;
+}
