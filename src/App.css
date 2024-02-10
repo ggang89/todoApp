@@ -22,21 +22,3 @@
   /* 형제요소에 똑같이 1을 주면 5대5비율로 나눠짐 */
 
 }
-.box{
- display: flex;
- align-items: center;
- /* 기본 flex속성이 strech로 되어있어서 자식요소가 늘어짐 */
- /* 이걸 고치려면 align속성을 center줘서 중앙정렬해줌 */
-}
-.textBox{
-  flex:1;
-  margin-right: 10px;
-
-}
-.button{
-  margin-right: 5px;
-}
-.updateInput{
-  flex:1;
-  margin-right: 10px;
-}
