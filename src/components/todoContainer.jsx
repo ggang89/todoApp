@@ -13,10 +13,11 @@ export default function TodoContainer() {
       todoTitle: "리액트 배우기",
       isEditing: false,
     },
+    // 중괄호 하나가 t값 하나다
     {
       id: "uniqeKey2",
       todoTitle: "자바스크립트 배우기",
-      isEditing: true,
+      isEditing: false,
     },
   ]);
   //1.isEditing=true이면 input창을 보여준다.
@@ -29,6 +30,19 @@ export default function TodoContainer() {
   //2. 수정창에서 수정버튼을 누르면 isEditing이 false가 된다
   const edit = () => {
     setTodo({ ...todo, isEditing: !todo.isEditing });
+  };
+  const editInList = (id) => {
+    console.log("id is", id);
+    const newArr = todoList.map((t) => {
+      if (id === t.id) {
+        return { ...t, isEditing: !t.isEditing };
+      } else {
+        return t;
+      }
+    });
+    setTodoList(newArr);
+    //id값을 받는다.
+    //받은 id 값과 일치하는 list의 내용을 바꿔준다
   };
 
   const handleText = (e) => {
@@ -47,7 +61,7 @@ export default function TodoContainer() {
           <TodoList
             key={t.id}
             todoTitle={t.todoTitle}
-            edit={edit}
+            edit={() => editInList(t.id)}
             isEditing={t.isEditing}
             handleText={handleText}
           />
