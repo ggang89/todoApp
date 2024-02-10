@@ -17,8 +17,17 @@ function App() {
       <ul >
         <li className="box">
           <p className="textBox">리액트 배우기 열심히</p>
-          <button >수정</button>
+          <button className="button">수정</button>
           <button>삭제</button>
+        </li>
+        {/* <li className="box">
+          <p className="textBox">타입스크립트 배우기</p>
+          <button>수정</button>
+          <button>삭제</button>
+        </li> */}
+        <li className="box">
+          <input className="updateInput"></input>
+          <button>수정</button>
         </li>
       </ul>
     </div>
