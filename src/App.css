@@ -3,9 +3,22 @@
   text-align: center ;
   border-bottom: 1px solid green;
   padding: 20px 0;
+  margin: 0;
 }
 .wrap{
   width: 600px;
   height: 100vh;
   margin: 0 auto;
+}
+.inputBox{
+  border-bottom: 1px solid green;
+  padding: 10px 10px 10px;
+  display: flex;
+}
+.inputText{
+  flex: 1;
+  margin-right: 10px;
+  /* input창의 요소의 크기를 최대로 지정함(버튼크기빼고) */
+  /* 형제요소에 똑같이 1을 주면 5대5비율로 나눠짐 */
+
 }
