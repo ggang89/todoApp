@@ -44,6 +44,16 @@ export default function TodoContainer() {
     //id값을 받는다.
     //받은 id 값과 일치하는 list의 내용을 바꿔준다
   };
+  const handleTextInList = (e, id) => {
+    const newText = todoList.map((t) => {
+      if (id === t.id) {
+        return { ...t, todoTitle: e.target.value };
+      }else{
+        return t;
+      }
+    });
+    setTodoList(newText);
+  };
 
   const handleText = (e) => {
     setTodo({ ...todo, todoTitle: e.target.value });
@@ -63,7 +73,7 @@ export default function TodoContainer() {
             todoTitle={t.todoTitle}
             edit={() => editInList(t.id)}
             isEditing={t.isEditing}
-            handleText={handleText}
+            handleText={(e) => handleTextInList(e, t.id)}
           />
         );
       })}
