@@ -12,14 +12,13 @@ export default function TodoContainer() {
       id: "uniqeKey",
       todoTitle: "리액트 배우기",
       isEditing: false,
-
     },
     // 중괄호 하나가 t값 하나다
-    {
-      id: "uniqeKey2",
-      todoTitle: "자바스크립트 배우기",
-      isEditing: false,
-    },
+    // {
+    //   id: "uniqeKey2",
+    //   todoTitle: "자바스크립트 배우기",
+    //   isEditing: false,
+    // },
   ]);
   //1.isEditing=true이면 input창을 보여준다.
   //2. false면 그대로 있다
@@ -49,20 +48,20 @@ export default function TodoContainer() {
     const newText = todoList.map((t) => {
       if (id === t.id) {
         return { ...t, todoTitle: e.target.value };
-      }else{
+      } else {
         return t;
       }
     });
     setTodoList(newText);
   };
 
-  const handleDelete = (id)=>{
+  const handleDelete = (id) => {
     // 1.
-    const newDelete = todoList.filter((t)=>{
+    const newDelete = todoList.filter((t) => {
       return id !== t.id;
     });
     setTodoList(newDelete);
-  }
+  };
   const handleText = (e) => {
     setTodo({ ...todo, todoTitle: e.target.value });
   };
@@ -72,26 +71,37 @@ export default function TodoContainer() {
   //변수의 값은 받아온 이벤트 값으로 바꿔준다.=(e.target.value)
 
   return (
-    <ul>
-      {todoList.map((t) => {
-        console.log("t값", t);
-        return (
-          <TodoList
-            key={t.id}
-            todoTitle={t.todoTitle}
-            edit={() => editInList(t.id)}
-            listDelete={()=>handleDelete(t.id)}
-            isEditing={t.isEditing}
-            handleText={(e) => handleTextInList(e, t.id)}
-          />
-        );
-      })}
+    <>
+      <div className="inputBox">
+        <input
+          className="inputText"
+          type="text"
+          placeholder="할 일을 입력하세요"
+        ></input>
+        <button>추가</button>
+      </div>
 
-      {/* <li className="box">
+      <ul>
+        {todoList.map((t) => {
+          console.log("t값", t);
+          return (
+            <TodoList
+              key={t.id}
+              todoTitle={t.todoTitle}
+              edit={() => editInList(t.id)}
+              listDelete={() => handleDelete(t.id)}
+              isEditing={t.isEditing}
+              handleText={(e) => handleTextInList(e, t.id)}
+            />
+          );
+        })}
+
+        {/* <li className="box">
           <p className="textBox">타입스크립트 배우기</p>
           <button>수정</button>
           <button>삭제</button>
         </li> */}
-    </ul>
+      </ul>
+    </>
   );
 }
